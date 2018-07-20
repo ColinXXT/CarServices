@@ -40,7 +40,7 @@
       "pagePath": "pages/shop-cart/index",
       "iconPath": "images/nav/order.png",
       "selectedIconPath": "images/nav/order-active.png",
-      "text": "订单"
+      "text": "订单 "
     },
     {
       "pagePath": "pages/my/index",
