@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/start/start",
     "pages/index/index",
     "pages/goods-details/index",
@@ -19,34 +19,37 @@
     "pages/authorize/index",
     "pages/switchcity/switchcity"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#6e6d6b",
     "selectedColor": "#53C0FB",
     "borderStyle": "white",
     "backgroundColor": "#fff",
-    "box-shadow":"0 0 6px 0",
-    "list": [{
-     "pagePath": "pages/index/index",
-      "iconPath": "images/nav/sy.png",
-      "selectedIconPath": "images/nav/sy-active.png",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/shop-cart/index",
-      "iconPath": "images/nav/order.png",
-      "selectedIconPath": "images/nav/order-active.png",
-      "text": "订单"
-    },
-    {
-      "pagePath": "pages/my/index",
-      "iconPath": "images/nav/zs.png",
-      "selectedIconPath": "images/nav/zs-active.png",
-      "text": "服务"
-    }]
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav/sy.png",
+        "selectedIconPath": "images/nav/sy-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/shop-cart/index",
+        "iconPath": "images/nav/order.png",
+        "selectedIconPath": "images/nav/order-active.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "images/nav/zs.png",
+        "selectedIconPath": "images/nav/zs-active.png",
+        "text": "服务"
+      }
+    ]
   }
 }

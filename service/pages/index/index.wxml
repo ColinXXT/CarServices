@@ -28,29 +28,76 @@
   </view>
 </view>
 <!--autoPlay-->
-<!--pending-->
+<!--Category-->
+<view class="main">
+    <view class="categroy-left">
+        <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
+            bindtap="switchTab"
+            class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+    </view>
 
-<!--pending-->
+    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+         <block wx:for="{{detail}}" wx:for-index wx:key="idx">
+            <view id="{{item.id}}" class="cate-box">
+                <view class="cate-title">
+                    <text>{{item.cate}}</text>
+                </view>
+                <view class="product">
+                    <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="val">
+                        <navigator url="../goods-details/index">
+                            <image src="{{val.thumb}}"></image>
+                            <view class="classname"><text>{{val.name}}</text></view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block> 
+    </scroll-view>
+
+</view>
+<!--Category-->
 <!--serviceList-->
- <view class="my-item" style='background:none;display:flex;'>
- 
+ <view class="my-item">
+ <image  class = "left" src = "../../images/cate/footer1.jpg" 
+    mode = "widthFix" />
     <view>驾驶证</view>
-    <view class="subtext">期满换证、丢失损坏、降低准驾车型、他省迁入</view>
+     <!-- <view class="subtext">期满换证、丢失损坏、降低准驾车型、他省迁入</view>  -->
   </view>
   <view class="my-item">
+  <image  class = "left" src = "../../images/cate/footer2.jpg"mode = "widthFix" />
     <navigator url="/pages/order-list/index" hover-class="navigator-hover">行驶证 车辆登记证 车牌
     </navigator>
   </view>
   <view class="my-item">
-    <navigator url="/pages/select-address/index" hover-class="navigator-hover">彩虹卡</navigator>
-  </view>
-  <view class="my-item">
+  <image  class = "left" src = "../../images/cate/footer5.jpg"mode = "widthFix" />
     <navigator url="/pages/mycoupons/index" hover-class="navigator-hover">异地年假委托书</navigator>
   </view>
   <view class="my-item">
+  <image  class = "left" src = "../../images/cate/footer3.jpg" mode = "widthFix" />
     <navigator url="/pages/mycoupons/index" hover-class="navigator-hover">车辆抵押、解押</navigator>
   </view>
  <view class="my-item">
+ <image  class = "left" src = "../../images/cate/icon-more.png" mode = "widthFix" />
     <navigator url="/pages/mycoupons/index" hover-class="navigator-hover">更多服务</navigator>
   </view>
   <!--serviceList-->
+
+  <!--banner-->
+  <view class="cate-banner">
+    <image src="../../images/more/adbanner.jpg"></image>            
+  </view>
+  <!--banner-->
+  <view class="svc">
+    <view class='svc_text'>四大服务优势</view>
+  </view>
+  <view class="Grid">
+    <view class="Grid-cell">
+      <view>
+      <image src="../../images/cate/footer1.jpg"/>
+      <text>方便快捷</text>
+      </view>
+    </view>
+    <view class="Grid-cell">
+    123
+    </view>
+  </view>
