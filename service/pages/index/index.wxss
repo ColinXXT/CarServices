@@ -241,10 +241,31 @@ swiper-item image {
 .Grid {
   display: flex;
 }
-.Grid-cell {
+.Grid-cell1 {
   flex: 1;
+  text-align: center;
+  border-bottom: 1px dashed #def0fc;
+  border-right: 1px dashed #def0fc;
+  padding-bottom:15rpx;
 }
-.Grid-cell image{
+.Grid-cell2 {
+  flex: 1;
+  text-align: center;
+  border-bottom: 1px dashed #def0fc;
+  padding-bottom:15rpx;
+}
+.Grid-cell3 {
+  flex: 1;
+  text-align: center;
+  border-right: 1px dashed #def0fc;
+  padding-top:15rpx;
+}
+.Grid-cell4 {
+  flex: 1;
+  text-align: center;
+  padding-top:15rpx;
+}
+.product-list1 image{
     width: 50px;
     height: 46px;
 }
@@ -254,4 +275,22 @@ swiper-item image {
 .svc_text{
   text-align: center;
   color: #53C0FB;
+}
+.notice_iteml1 {
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  font-size: 26rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #999;
+  text-align: left;
+  padding-left:50rpx;
+}
+
+.product-list1{
+    display: inline-block;
+    height: 160rpx;
+    text-align: center;
+    margin:0 20rpx 20rpx 0;
+    font-size: 24rpx;
 }

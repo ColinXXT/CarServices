@@ -91,13 +91,47 @@
     <view class='svc_text'>四大服务优势</view>
   </view>
   <view class="Grid">
-    <view class="Grid-cell">
-      <view>
-      <image src="../../images/cate/footer1.jpg"/>
-      <text>方便快捷</text>
-      </view>
+    <view class="Grid-cell1">
+      <view class="product">
+        <view class="product-list1">
+                <image src="../../images/cate/index-icon.png"/>
+                <view class="classname"><text>方便快捷</text></view>
+                <view class="notice_iteml1">省去长时间排队等待，车务顾问全程服务，手续齐全，快速办理</view>
+        </view>
+        </view>
     </view>
-    <view class="Grid-cell">
-    123
+    <view class="Grid-cell2">
+    <view class="product">
+        <view class="product-list1">
+                <image src="../../images/cate/index-icon.png"/>
+                <view class="classname"><text>价格合理</text></view>
+                <view class="notice_iteml1">明码标价，价格合理，杜绝隐性收费</view>
+        </view>
+        </view>
     </view>
   </view>
+    <view class="Grid">
+    <view class="Grid-cell3">
+      <view class="product">
+        <view class="product-list1">
+                <image src="../../images/cate/index-icon.png"/>
+                  <view class="classname"><text>全程服务</text></view>
+                <view class="notice_iteml1">专业车务顾问，“一对一全程代办服务，客户经理全程实时监督服务</view>
+        </view>
+        </view>
+    </view>
+    <view class="Grid-cell4">
+     <view class="product">
+        <view class="product-list1">
+                <image src="../../images/cate/index-icon.png"/>
+                 <view class="classname"><text>退款保障</text></view>
+                <view class="notice_iteml1">服务不满意，款项随时可以退还。</view>
+        </view>
+        </view>
+    </view>
+  </view>
+  <!--serviceJourney-->
+  <view class="svc">
+    <view class='svc_text'>办理流程</view>
+  </view>
+  <!--serviceJourney-->
