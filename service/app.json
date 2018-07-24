@@ -42,13 +42,13 @@
         "pagePath": "pages/shop-cart/index",
         "iconPath": "images/nav/order.png",
         "selectedIconPath": "images/nav/order-active.png",
-        "text": "订单"
+        "text": "服务"
       },
       {
         "pagePath": "pages/my/index",
         "iconPath": "images/nav/zs.png",
         "selectedIconPath": "images/nav/zs-active.png",
-        "text": "服务"
+        "text": "我的"
       }
     ]
   }
