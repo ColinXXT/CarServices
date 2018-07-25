@@ -2,20 +2,9 @@
   "pages": [
     "pages/start/start",
     "pages/index/index",
-    "pages/goods-details/index",
-    "pages/shop-cart/index",
-    "pages/to-pay-order/index",
-    "pages/select-address/index",
-    "pages/address-add/index",
     "pages/order-list/index",
-    "pages/order-details/index",
-    "pages/wuliu/index",
-    "pages/mycoupons/index",
     "pages/my/index",
-    "pages/notice/show",
-    "pages/recharge/index",
-    "pages/withdraw/index",
-    "pages/kanjia/index",
+    "pages/service/show",
     "pages/authorize/index",
     "pages/switchcity/switchcity"
   ],
@@ -39,9 +28,9 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/shop-cart/index",
-        "iconPath": "images/nav/order.png",
-        "selectedIconPath": "images/nav/order-active.png",
+        "pagePath": "pages/service/show",
+        "iconPath": "images/nav/server.png",
+        "selectedIconPath": "images/nav/server-active.png",
         "text": "服务"
       },
       {

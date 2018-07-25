@@ -32,10 +32,10 @@ Page({
   onLoad: function () {
     var that = this
     var imageInfo = [{
-      picUrl: "../../images/banner1.jpg"
+      picUrl: "../../images/more/banner1.jpg"
     },
       {
-        picUrl: "../../images/banner2.jpg"
+        picUrl: "../../images/more/banner2.jpg"
       }];
     that.setData({
       banners: imageInfo

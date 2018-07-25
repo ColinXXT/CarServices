@@ -44,3 +44,17 @@
     line-height: 100rpx;
     padding-left: 100rpx;
 }
+.left{
+  float:left;
+}
+.my-item image{
+  width:50rpx;
+  margin-top:20rpx;
+  margin-right:20rpx;
+}
+
+.about image{
+  width: 350rpx;
+  height: 40rpx;
+}
+

@@ -27,11 +27,15 @@ Page({
     this.getUserAmount();
     this.checkScoreSign();
   },
-  aboutUs : function () {
-    wx.showModal({
-      title: '关于我们',
-      content: '本系统基于开源小程序商城系统 https://github.com/EastWorld/wechat-app-mall 搭建，祝大家使用愉快！',
-      showCancel:false
+  calling: function () {
+    wx.makePhoneCall({
+      phoneNumber: '400-875-6066', //此号码并非真实电话号码，仅用于测试
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
     })
   },
   getPhoneNumber: function(e) {

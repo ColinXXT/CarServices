@@ -396,7 +396,7 @@ padding-left:70rpx;
     background: url(https://raw.githubusercontent.com/ColinXXT/CarServices/master/service/images/cate/index-icon.png) 0 -295px no-repeat;
     background-size: 52px 615px;
     float:left;
-    margin-left:100px;
+    margin-left:97px;
 }
 .offlineSvc image{
     width: 50px;
@@ -404,7 +404,7 @@ padding-left:70rpx;
     background: url(https://raw.githubusercontent.com/ColinXXT/CarServices/master/service/images/cate/index-icon.png) 0 -440px no-repeat;
     background-size: 52px 610px;
     float:left;
-    margin-left:100px;
+    margin-left:97px;
 }
 .compleOrder image{
     width: 50px;
@@ -412,7 +412,7 @@ padding-left:70rpx;
     background: url(https://raw.githubusercontent.com/ColinXXT/CarServices/master/service/images/cate/index-icon.png) 0 -488px no-repeat;
     background-size: 52px 610px;
     float:left;
-    margin-left:100px;
+    margin-left:97px;
 }
 
 .selection image{

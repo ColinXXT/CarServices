@@ -19,7 +19,7 @@
    <!--city seleter-->
     <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105,195,170, 0.3))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
     <view class="search-content">
-      <image src="/images/place.png" class="search-icon" />
+      <image src="/images/more/place.png" class="search-icon" />
       <navigator url="/pages/switchcity/switchcity" hover-class="navigator-hover">
           <view class="notice_iteml">所在城市</view>
       </navigator>
@@ -145,7 +145,7 @@
      <image/>
      </view>
      <view class='suborder1'>
-      <image src = "../../images/icon-user-guide.png"/>
+      <image src = "../../images/cate/icon-user-guide.png"/>
         <view class='journey_text2'>客户指导</view>
     </view> 
     <view class="selection"> 
