@@ -23,7 +23,6 @@
       <navigator url="/pages/switchcity/switchcity" hover-class="navigator-hover">
           <view class="notice_iteml">所在城市</view>
       </navigator>
-      <!-- <image src="/images/tel-call-top.png" class="tel-icon" /> -->
     </view>
   </view>
 </view>
@@ -80,7 +79,7 @@
   </view>
  <view class="my-item">
  <image  class = "left" src = "../../images/cate/icon-more.png" mode = "widthFix" />
-    <navigator url="../order-list/index" hover-class="navigator-hover">更多服务</navigator>
+    <text bindtap="moreServices">更多服务</text>
   </view>
   <!--serviceList-->
 

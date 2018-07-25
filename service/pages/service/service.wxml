@@ -25,11 +25,20 @@
         <text class="title">车务知识</text>
         <view class="split"></view>
       </view>
-
-      <serviceList
-        id="serviceList"
-        bind:onEnterDeatil="_onEnterDeatil"
-        bookList="{{boyList}}" />
+      <view class="InfoItemList b-list">
+  <view class="list-item" wx:for="{{serviceList}}" wx:key="{{item.id}}" data-book="{{item}}" bindtap="gotoDetail">
+     <view class="b-item-img">
+      <image src="../../images/svrs/svrs.jpg" alt="{{item.title}}"></image>
+    </view>
+    <view class="b-item-right">
+      <text class="b-item-des">{{item.des}}</text>
+      <view class="b-item-info">
+        <text class="b-item-type">{{item.date}}</text>
+      </view>
+    </view> 
+  </view> 
+  <view bindtap="loadMore" class="b-view-more">更多...</view>
+</view>
     </view>
   </view>
 </view>

@@ -8,7 +8,7 @@
 	flex-direction: column;
 	padding: 50rpx 0;
 	align-items: center;
-	background: #e85654;
+	background: #69C3AA;
   width: 750rpx;
 }
 
@@ -36,7 +36,7 @@
 
 .my-item{
     width: 100%;
-    background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 750rpx center;
+    background: url(https://raw.githubusercontent.com/ColinXXT/CarServices/master/service/images/more/arrow-right.png) no-repeat 750rpx center;
     background-size: 16rpx auto,750rpx auto;
     margin: 20rpx 0; 
     border-bottom: 1px solid #eee;
@@ -54,7 +54,7 @@
 }
 
 .about image{
-  width: 350rpx;
+  width: 320rpx;
   height: 40rpx;
 }
 

@@ -124,6 +124,11 @@ Page({
       ]
     })
   },
+  moreServices(e){
+    wx.switchTab({
+      url: '../service/service',
+    })
+  },
   switchTab(e) {
     const self = this;
     this.setData({

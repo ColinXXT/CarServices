@@ -4,9 +4,10 @@
     "pages/index/index",
     "pages/order-list/index",
     "pages/my/index",
-    "pages/service/show",
+    "pages/service/service",
     "pages/authorize/index",
-    "pages/switchcity/switchcity"
+    "pages/switchcity/switchcity",
+    "pages/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,7 +29,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/service/show",
+        "pagePath": "pages/service/service",
         "iconPath": "images/nav/server.png",
         "selectedIconPath": "images/nav/server-active.png",
         "text": "服务"

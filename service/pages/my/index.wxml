@@ -24,7 +24,8 @@
   </view>
   <view style="height:20rpx;background: #eee;width:100%;"></view>
 
-  <view class="my-item" style="border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;">
-    <button type="warn" bindtap="relogin">重新授权登录</button>
+  <view class="my-item" style="border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;"> 
+    <button style='background: #69C3AA;' type="warn" bindtap="relogin">重新授权登录</button>
+    
   </view>
 </view>
