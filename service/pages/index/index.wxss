@@ -129,7 +129,7 @@ swiper-item image {
 }
 
 .my-item{
-    background: url(https://raw.githubusercontent.com/ColinXXT/CarServices/master/service/images/arrow-right.png) no-repeat 680rpx center;
+    background: url(https://raw.githubusercontent.com/ColinXXT/CarServices/master/service/images/more/arrow-right.png) no-repeat 680rpx center;
     background-size: 16rpx auto,750rpx auto;
     margin: 20rpx 0; 
     border-bottom: 1px solid #eee;
