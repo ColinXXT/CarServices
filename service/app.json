@@ -7,7 +7,8 @@
     "pages/service/service",
     "pages/authorize/index",
     "pages/switchcity/switchcity",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
