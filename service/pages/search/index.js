@@ -29,6 +29,10 @@ Page({
     hasSelected: false
   },
   onLoad: function (options) {
+    console.log(options)
+    wx.setNavigationBarTitle({
+      title: options.name
+    })
     wx.showToast({
       title: '载入中(•ᴗ•)',
       icon: 'loading',
@@ -271,6 +275,11 @@ console.log(this.data)
     });
   },
   done: function(e){
+    wx.showToast({
+      title: '载入中(•ᴗ•)',
+      icon: 'loading',
+      mask: true
+    });
     var that = this;
     this.setData({
       condition: false

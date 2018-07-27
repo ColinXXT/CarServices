@@ -14,7 +14,8 @@ Page({
     city: "上海市",
     hotcityList: [{ cityCode: 110000, city: '北京市' }, { cityCode: 310000, city: '上海市' }, { cityCode: 440100, city: '广州市' }, { cityCode: 440300, city: '深圳市' }, { cityCode: 330100, city: '杭州市' }, { cityCode: 320100, city: '南京市' }, { cityCode: 420100, city: '武汉市' }, { cityCode: 410100, city: '郑州市' }, { cityCode: 120000, city: '天津市' }, { cityCode: 610100, city: '西安市' }, { cityCode: 510100, city: '成都市' }, { cityCode: 500000, city: '重庆市' }]
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log(options.city)
     // 生命周期函数--监听页面加载
     var searchLetter = city.searchLetter;
     var cityList = city.cityList();
@@ -33,7 +34,8 @@ Page({
       winHeight: winHeight,
       itemH: itemH,
       searchLetter: tempObj,
-      cityList: cityList
+      cityList: cityList,
+      city:options.city
     })
 
   },
@@ -80,12 +82,20 @@ Page({
   bindCity: function (e) {
     console.log("bindCity")
     this.setData({ city: e.currentTarget.dataset.city })
+    app.globalData.index_city = this.data.city; // index页面中的switch city
+    wx.switchTab({
+      url: '../index/index',
+    })
   },
   //选择热门城市
   bindHotCity: function (e) {
     console.log("bindHotCity")
     this.setData({
       city: e.currentTarget.dataset.city
+    })
+    app.globalData.index_city = this.data.city; // index页面中的switch city
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   //点击热门城市回到顶部

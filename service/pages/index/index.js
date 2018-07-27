@@ -20,7 +20,8 @@ Page({
     detail: [],
     curIndex: 0,
     isScroll: false,
-    toView: 'search'
+    toView: 'search',
+    index_city: ''
   },
   //事件处理函数
   swiperchange: function(e) {
@@ -40,9 +41,18 @@ Page({
     that.setData({
       banners: imageInfo
     });
+    that.getLocation_index();    
+  },
+  onShow(){
+
+    var self = this;
+    self.setData({
+      index_city : app.globalData.index_city
+    })
+    console.log(self.data.index_city)
   },
   onReady() {
-    var self = this;
+    var that = this;
     // wx.request({
     //   url: '',
     //   success(res) {
@@ -51,7 +61,48 @@ Page({
     //     })
     //   }
     // });
-    self.setData({
+    wx.getSetting({
+      success: (res) => {
+        console.log(res);
+        console.log(res.authSetting['scope.userLocation']);
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {//非初始化进入该页面,且未授权
+          wx.showModal({
+            title: '是否授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function (res) {
+              if (res.cancel) {
+                console.info("1授权失败返回数据");
+                
+              } else if (res.confirm) {
+                wx.openSetting({
+                  success: function (data) {
+                    console.log(data);
+                    if (data.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                      //再次授权，调用getLocationt的API
+                      getLocation_index(that);
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] == undefined) {//初始化进入
+          getLocation_index(that);
+        }
+      }
+    })
+    that.setData({
       detail: [
         {
           "id": "search",
@@ -153,6 +204,44 @@ Page({
       scrollTop: e.scrollTop
     })
    },
+   getLocation_index(){
+    var that = this;
+     wx.getLocation({  //获取地理位置信息-经度纬度
+       type: 'wgs84',
+       success: function (res) {
+         console.log("获取客户当前位置完成");
+         var latitude = res.latitude;
+         var longitude = res.longitude;
+         that._queryAddress(latitude, longitude); //将经纬度转化成地理位置信息
+         wx.hideToast();
+       },
+       fail: function () {
+         wx.showModal({
+           title: '获取地理位置失败',
+           content: '请您允许小程序获取您所在的位置信息。',
+           showCancel: false
+         })
+       }
+     })
+   },
+  _queryAddress: function (latitude, longitude) {  //调用腾讯地图API进行经纬度转换，API限制-每秒5次，单日10000次,下面的key换成自己申请的
+    var _that = this;
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + latitude + ',' + longitude + '&key=LCMBZ-NMFWS-XUTOR-6CNF5-TNN3Q-X3FAG',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        var city = res.data.result.ad_info.city;
+        console.log(city)
+        app.globalData.index_city = city;
+        _that.setData({ //结果更新至data中
+          index_city: city,
+        });
+      }
+    });
+  },
   onShareAppMessage: function () {
     return {
       title: wx.getStorageSync('mallName') + '——' + app.globalData.shareProfile,
