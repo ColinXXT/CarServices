@@ -1,5 +1,71 @@
 //index.js
 //获取应用实例
+const carDetails = [
+  {
+    "id": "search",
+    "cate": "违章服务",
+    "detail": [
+      {
+        "thumb": "/images/cate/bmcw-wz-icon.jpg",
+        "name": "违章查询"
+      },
+      {
+        "thumb": "/images/cate/bmcw-wts-icon.jpg",
+        "name": "代销违章"
+      },
+    ]
+  },
+  {
+    "id": "newCarsChanges",
+    "cate": "过户",
+    "detail": [
+      {
+        "thumb": "/images/cate/main1.jpg",
+        "name": "本市过户"
+      },
+      {
+        "thumb": "/images/cate/main2.jpg",
+        "name": "车辆外迁"
+      },
+      {
+        "thumb": "/images/cate/main3.jpg",
+        "name": "车辆迁入"
+      }
+    ]
+  },
+  {
+    "id": "carsBoarding",
+    "cate": "上牌",
+    "detail": [
+      {
+        "thumb": "/images/cate/main4.jpg",
+        "name": "国产车"
+      },
+      {
+        "thumb": "/images/cate/main5.jpg",
+        "name": "进口车"
+      },
+      {
+        "thumb": "/images/cate/main6.jpg",
+        "name": "平行车辆"
+      }
+    ]
+  },
+  {
+    "id": "inspection",
+    "cate": "车辆托运",
+    "detail": [
+      {
+        "thumb": "/images/cate/main7.jpg",
+        "name": "本市车辆"
+      },
+      {
+        "thumb": "/images/cate/main8.jpg",
+        "name": "异地车辆"
+      }
+    ]
+  }
+];
 var app = getApp()
 Page({
   data: {
@@ -15,7 +81,7 @@ Page({
       { name: '违章查询', id: 'search' },
       { name: '车辆过户', id: 'newCarsChanges' },
       { name: '新车上牌', id: 'carsBoarding' },
-      { name: '年检验车', id: 'inspection' },
+      { name: '车辆托运', id: 'inspection' },
     ],
     detail: [],
     curIndex: 0,
@@ -53,6 +119,7 @@ Page({
   },
   onReady() {
     var that = this;
+    //用户请求数据
     // wx.request({
     //   url: '',
     //   success(res) {
@@ -61,118 +128,10 @@ Page({
     //     })
     //   }
     // });
-    wx.getSetting({
-      success: (res) => {
-        console.log(res);
-        console.log(res.authSetting['scope.userLocation']);
-        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {//非初始化进入该页面,且未授权
-          wx.showModal({
-            title: '是否授权当前位置',
-            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
-            success: function (res) {
-              if (res.cancel) {
-                console.info("1授权失败返回数据");
-                
-              } else if (res.confirm) {
-                wx.openSetting({
-                  success: function (data) {
-                    console.log(data);
-                    if (data.authSetting["scope.userLocation"] == true) {
-                      wx.showToast({
-                        title: '授权成功',
-                        icon: 'success',
-                        duration: 5000
-                      })
-                      //再次授权，调用getLocationt的API
-                      getLocation_index(that);
-                    } else {
-                      wx.showToast({
-                        title: '授权失败',
-                        icon: 'success',
-                        duration: 5000
-                      })
-                    }
-                  }
-                })
-              }
-            }
-          })
-        } else if (res.authSetting['scope.userLocation'] == undefined) {//初始化进入
-          getLocation_index(that);
-        }
-      }
-    })
+    //用户开启定位的检查
+    that._authSettingForLocation();
     that.setData({
-      detail: [
-        {
-          "id": "search",
-          "cate": "服务",
-          "detail": [
-            {
-              "thumb": "/images/cate/bmcw-wz-icon.jpg",
-              "name": "违章查询"
-            },
-            {
-              "thumb": "/images/cate/bmcw-jz-icon.jpg",
-              "name": "带领签字"
-            },
-            {
-              "thumb": "/images/cate/bmcw-wts-icon.jpg",
-              "name": "年检委托书"
-            }
-          ]
-        },
-        {
-          "id": "newCarsChanges",
-          "cate": "过户",
-          "detail": [
-            {
-              "thumb": "/images/cate/main1.jpg",
-              "name": "本市过户"
-            },
-            {
-              "thumb": "/images/cate/main2.jpg",
-              "name": "车辆外迁"
-            },
-            {
-              "thumb": "/images/cate/main3.jpg",
-              "name": "车辆迁入"
-            }
-          ]
-        },
-        {
-          "id": "carsBoarding",
-          "cate": "上牌",
-          "detail": [
-            {
-              "thumb": "/images/cate/main4.jpg",
-              "name": "国产车"
-            },
-            {
-              "thumb": "/images/cate/main5.jpg",
-              "name": "进口车"
-            },
-            {
-              "thumb": "/images/cate/main6.jpg",
-              "name": "平行车辆"
-            }
-          ]
-        },
-        {
-          "id": "inspection",
-          "cate": "年检",
-          "detail": [
-            {
-              "thumb": "/images/cate/main7.jpg",
-              "name": "本市车辆"
-            },
-            {
-              "thumb": "/images/cate/main8.jpg",
-              "name": "异地车辆"
-            }
-          ]
-        }     
-      ]
+      detail: carDetails
     })
   },
   moreServices(e){
@@ -253,5 +212,49 @@ Page({
         // 转发失败
       }
     }
-  }
+  },
+
+_authSettingForLocation(){
+  wx.getSetting({
+    success: (res) => {
+      console.log(res);
+      console.log(res.authSetting['scope.userLocation']);
+      if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {//非初始化进入该页面,且未授权
+        wx.showModal({
+          title: '是否授权当前位置',
+          content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+          success: function (res) {
+            if (res.cancel) {
+              console.info("1授权失败返回数据");
+
+            } else if (res.confirm) {
+              wx.openSetting({
+                success: function (data) {
+                  console.log(data);
+                  if (data.authSetting["scope.userLocation"] == true) {
+                    wx.showToast({
+                      title: '授权成功',
+                      icon: 'success',
+                      duration: 5000
+                    })
+                    //再次授权，调用getLocationt的API
+                    getLocation_index(that);
+                  } else {
+                    wx.showToast({
+                      title: '授权失败',
+                      icon: 'success',
+                      duration: 5000
+                    })
+                  }
+                }
+              })
+            }
+          }
+        })
+      } else if (res.authSetting['scope.userLocation'] == undefined) {//初始化进入
+        getLocation_index(that);
+      }
+    }
+  })
+}
 })

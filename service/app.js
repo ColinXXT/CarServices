@@ -5,7 +5,7 @@ App({
     // 判断是否登录
     let token = wx.getStorageSync('token');
     if (!token) {
-      // that.goLoginPageTimeOut()
+      that.goLoginPageTimeOut()
       return
     }
     wx.request({

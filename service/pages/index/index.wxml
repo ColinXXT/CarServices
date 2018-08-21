@@ -43,7 +43,7 @@
                 </view>
                 <view class="product">
                     <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="val">
-                        <navigator url="../order-list/index">
+                        <navigator url="../driverLicense/index">
                             <image src="{{val.thumb}}"></image>
                             <view class="classname"><text>{{val.name}}</text></view>
                         </navigator>
@@ -56,10 +56,10 @@
 </view>
 <view style="height:20rpx;background: #eee;width:100%;"></view>
 <!--Category-->
-<!--serviceList-->
+<!--serviceList
   <view class="my-item">
   <image  class = "left" src = "../../images/cate/footer1.jpg"mode = "widthFix" />
-    <navigator url="../order-list/index" hover-class="navigator-hover">驾驶证
+    <navigator url="../driverLicense/index" hover-class="navigator-hover">驾驶证
      <view class="notice_iteml2">期满换证、丢失损坏、降低准驾车型、他省迁入</view>
     </navigator>
   </view>
@@ -81,7 +81,7 @@
  <image  class = "left" src = "../../images/cate/icon-more.png" mode = "widthFix" />
     <text bindtap="moreServices">更多服务</text>
   </view>
-  <!--serviceList-->
+  serviceList-->
 
   <!--banner-->
   <view class="cate-banner">
@@ -174,7 +174,7 @@
   </view>
   <!--serviceJourney-->
 
-  <!--GoodServers-->
+  <!--GoodServers
 <view class="svc">
     <view class='svc_text'>金牌车顾问</view>
 </view>
@@ -205,9 +205,9 @@
         <text>接单量</text><text style='color:#ff9f15;'>195</text><text>单\n</text>
         <image class='svc_stars' src='../../images/svrs/star-y.png'/>  
       </view>
- </view>   
+ </view>   -->
    <!--GoodServers-->
-   <!--T&C-->
+   <!--T&C
 <view class="cate-banner1">
     <image src="../../images/svrs/bm-slogan.png"></image>            
   </view>

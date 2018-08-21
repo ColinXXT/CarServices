@@ -2,10 +2,7 @@ const app = getApp()
 
 Page({
 	data: {
-    balance:0,
-    freeze:0,
-    score:0,
-    score_sign_continuous:0
+
   },
 	onLoad() {
     
@@ -13,6 +10,7 @@ Page({
   onShow() {
     let that = this;
     let userInfo = wx.getStorageSync('userInfo')
+    console.log(userInfo)
     if (!userInfo) {
       wx.navigateTo({
         url: "/pages/authorize/index"
@@ -24,8 +22,6 @@ Page({
       })
     }
     this.getUserApiInfo();
-    this.getUserAmount();
-    this.checkScoreSign();
   },
   calling: function () {
     wx.makePhoneCall({
@@ -39,6 +35,7 @@ Page({
     })
   },
   getPhoneNumber: function(e) {
+    console.log(e.details)
     if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
       wx.showModal({
         title: '提示',
@@ -91,75 +88,9 @@ Page({
     })
 
   },
-  getUserAmount: function () {
-    var that = this;
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
-      data: {
-        token: wx.getStorageSync('token')
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          that.setData({
-            balance: res.data.data.balance,
-            freeze: res.data.data.freeze,
-            score: res.data.data.score
-          });
-        }
-      }
-    })
-
-  },
-  checkScoreSign: function () {
-    var that = this;
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/today-signed',
-      data: {
-        token: wx.getStorageSync('token')
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          that.setData({
-            score_sign_continuous: res.data.data.continuous
-          });
-        }
-      }
-    })
-  },
-  scoresign: function () {
-    var that = this;
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/sign',
-      data: {
-        token: wx.getStorageSync('token')
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          that.getUserAmount();
-          that.checkScoreSign();
-        } else {
-          wx.showModal({
-            title: '错误',
-            content: res.data.msg,
-            showCancel: false
-          })
-        }
-      }
-    })
-  },
   relogin:function(){
     wx.navigateTo({
       url: "/pages/authorize/index"
-    })
-  },
-  recharge: function () {
-    wx.navigateTo({
-      url: "/pages/recharge/index"
-    })
-  },
-  withdraw: function () {
-    wx.navigateTo({
-      url: "/pages/withdraw/index"
     })
   }
 })

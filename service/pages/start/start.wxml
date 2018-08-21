@@ -14,7 +14,7 @@
       <view class="bd">
          <image class="smalltitle" src="/images/more/bm-slogan.png"></image>
         <view class="confirm-btn" bindtap='goToIndex'>
-          <text >进入斑马车务</text>
+          <text >进入温馨管家</text>
         </view>
         <text class="copyright">@Colin 帅哥</text>
       </view>

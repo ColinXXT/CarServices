@@ -1,4 +1,55 @@
+const svDetails = [
+  {
+    "id": "search",
+    "detail": [
+      {
+        "thumb": "/images/cate/bmcw-wz-icon.jpg",
+        "name": "车管所查询"
+      },
 
+      {
+        "thumb": "/images/cate/bmcw-jz-icon.jpg",
+        "name": "车管站查询"
+      },
+      {
+        "thumb": "/images/cate/bmcw-jz-icon.jpg",
+        "name": "解体场查询"
+      },
+      {
+        "thumb": "/images/cate/bmcw-wts-icon.jpg",
+        "name": "体检场查询"
+      },
+      {
+        "thumb": "/images/cate/bmcw-wts-icon.jpg",
+        "name": "限迁查询"
+      }
+    ]
+  }
+];
+const serverList = [{
+
+  "des": "一图看懂 | 简捷快办、网上通办、就近可办……20项交管“放管服”改革新举措都有啥？",
+  "date": "2018/6/15 15:29:12",
+  "status": "end",
+  "id": "1"
+}, {
+
+  "des": "《北京市交通委员会 北京市环境保护局 北京市公安局公安交通管理局关于对部分载客汽车采取交通管理措施的通告》解读",
+  "date": "2018/6/15 15:29:12",
+  "status": "update",
+  "id": "2"
+}, {
+
+  "des": "关于对部分载客汽车采取交通管理措施的通告",
+  "date": "2018/6/15 15:29:12",
+  "status": "end",
+  "id": "3"
+}, {
+  "des": "2018年端午节期间车管窗口工作时间",
+  "date": "2018/6/15 15:29:12",
+  "status": "update",
+  "id": "4"
+}];
 var app = getApp();
 Page({
 
@@ -23,58 +74,8 @@ Page({
   onReady: function () {
     var self = this;
     self.setData({
-      detail: [
-        {
-          "id": "search",
-          "detail": [
-            {
-              "thumb": "/images/cate/bmcw-wz-icon.jpg",
-              "name": "车管所查询"
-            },
-           
-            {
-              "thumb": "/images/cate/bmcw-jz-icon.jpg",
-              "name": "车管站查询"
-            },
-            {
-              "thumb": "/images/cate/bmcw-jz-icon.jpg",
-              "name": "解体场查询"
-            },
-            {
-              "thumb": "/images/cate/bmcw-wts-icon.jpg",
-              "name": "体检场查询"
-            },
-            {
-              "thumb": "/images/cate/bmcw-wts-icon.jpg",
-              "name": "限迁查询"
-            }
-          ]
-        }
-      ],
-      serviceList: [{
-
-        "des": "一图看懂 | 简捷快办、网上通办、就近可办……20项交管“放管服”改革新举措都有啥？",
-        "date": "2018/6/15 15:29:12",
-        "status": "end",
-        "id": "1"
-      }, {
-
-        "des": "《北京市交通委员会 北京市环境保护局 北京市公安局公安交通管理局关于对部分载客汽车采取交通管理措施的通告》解读",
-        "date": "2018/6/15 15:29:12",
-        "status": "update",
-        "id": "2"
-      }, {
-
-        "des": "关于对部分载客汽车采取交通管理措施的通告",
-        "date": "2018/6/15 15:29:12",
-        "status": "end",
-        "id": "3"
-      }, {
-        "des": "2018年端午节期间车管窗口工作时间",
-        "date": "2018/6/15 15:29:12",
-        "status": "update",
-        "id": "4"
-      }]
+      detail: svDetails,
+      serviceList: serverList
     })
   },
 

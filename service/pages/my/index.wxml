@@ -19,9 +19,9 @@
     {{userMobile}}
   </view>
   <view style="height:20rpx;background: #eee;width:100%;"></view>
-<view class="about" bindtap="calling">
+  <!--<view class="about" bindtap="calling">
     <image src = "../../images/my/tel-call-top.png" mode = "widthFix"/>
-  </view>
+  </view>-->
   <view style="height:20rpx;background: #eee;width:100%;"></view>
 
   <view class="my-item" style="border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;"> 
