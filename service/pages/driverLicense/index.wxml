@@ -1,7 +1,5 @@
  <!--banner-->
-  <view class="cate-banner">
-    <image src="../../images/driImage/bmcw-wzcx-banner.jpg"></image>            
-  </view>
+ <view wx:if="{{condition}}"  style="display:{{hideview ? none : flex}};flex-direction: row;">
   <!--banner-->
   <view class='main'>
   <view class="note">
@@ -9,10 +7,10 @@
   </view>
   <view class="Grid">
       <view class="Grid-cell">
-         <view class='journey_text'>选择机动车车型：</view>
+         <view class='journey_title'>选择机动车车型：</view>
      </view>
       <view class="Grid-cell-sub">
-         <picker bindchange="bindPickerChange" value="{{areaIndex}}" range="{{area}}">
+         <picker bindchange="bindPickerChange" value="{{areaIndex}}" range="{{area}}" >
           <view class="picker">
             {{area[areaIndex]}}
           </view>
@@ -32,7 +30,7 @@
         </picker>
      </view>
       <view class="Grid-cell-sub1">
-         <input placeholder='请输入车牌机号' class='inputStyle' bindinput='carInput' value='{{carValue}}'>
+         <input placeholder='请输入车牌机号' class='inputStyle' bindinput='carInput' data-id="carNumber" value='{{chepaiValue}}'>
          </input>
       </view>
     </view>
@@ -47,7 +45,7 @@
       </view>
       </view>
     </view>
-<input placeholder='请输入发动机号' class='inputStyle' bindinput='carInput' value='{{carValue}}'></input>
+<input placeholder='请输入发动机号' data-id="fdjNumber" class='inputStyle' bindinput='carInput' value='{{fadongjiValue}}'></input>
 </view>
 <view class='carStyle'>
     <view class="Grid">
@@ -60,12 +58,12 @@
       </view>
       </view>
     </view>
-    <input class='inputStyle' placeholder='请输入车架号' bindinput='carInput' value='{{carValue}}'></input>
+    <input class='inputStyle' data-id="zjNumber" placeholder='请输入车架号' bindinput='carInput' value='{{chejiaValue}}'></input>
     </view>
      <!-- <view style="height:20rpx;background: #eee;width:100%;"></view> -->
 
   <view class="my-item" style="border:none;padding:10rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;"> 
-    <button style='background: #53c0fc;' type="warn" bindtap="relogin">查询</button>
+    <button style='background: #53c0fc;' type="warn" bindtap="search">查询</button>
     
   </view>
     </view>
@@ -84,7 +82,8 @@
       <image  src="../../images/driImage/bjcg-sl-fdjhm.jpg" alt="" class="age1">
       </image>       
 </modal>
-<modal class="modal" hidden="{{modalFlag2}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+<modal class="modal" id='chejianum' hidden="{{modalFlag2}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
       <image alt="" class="age1">
       </image>       
 </modal>
+</view>

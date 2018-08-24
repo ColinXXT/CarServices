@@ -7,11 +7,13 @@ const carDetails = [
     "detail": [
       {
         "thumb": "/images/cate/bmcw-wz-icon.jpg",
-        "name": "违章查询"
+        "name": "违章查询",
+        "id": "wzcx"
       },
       {
         "thumb": "/images/cate/bmcw-wts-icon.jpg",
-        "name": "代销违章"
+        "name": "代销违章",
+        "id": "dxwz"
       },
     ]
   },
@@ -21,15 +23,18 @@ const carDetails = [
     "detail": [
       {
         "thumb": "/images/cate/main1.jpg",
-        "name": "本市过户"
+        "name": "本市过户",
+        "id": "bsgh"
       },
       {
         "thumb": "/images/cate/main2.jpg",
-        "name": "车辆外迁"
+        "name": "车辆外迁",
+        "id": "clwq"
       },
       {
         "thumb": "/images/cate/main3.jpg",
-        "name": "车辆迁入"
+        "name": "车辆迁入",
+        "id": "clqr"
       }
     ]
   },
@@ -39,15 +44,18 @@ const carDetails = [
     "detail": [
       {
         "thumb": "/images/cate/main4.jpg",
-        "name": "国产车"
+        "name": "国产车",
+        "id": "gcc"
       },
       {
         "thumb": "/images/cate/main5.jpg",
-        "name": "进口车"
+        "name": "进口车",
+        "id": "jkc"
       },
       {
         "thumb": "/images/cate/main6.jpg",
-        "name": "平行车辆"
+        "name": "平行车辆",
+        "id": "pxcl"
       }
     ]
   },
@@ -57,11 +65,13 @@ const carDetails = [
     "detail": [
       {
         "thumb": "/images/cate/main7.jpg",
-        "name": "本市车辆"
+        "name": "本市车辆",
+        "id": "bscl"
       },
       {
         "thumb": "/images/cate/main8.jpg",
-        "name": "异地车辆"
+        "name": "异地车辆",
+        "id": "ydcl"
       }
     ]
   }
@@ -256,5 +266,41 @@ _authSettingForLocation(){
       }
     }
   })
-}
+}，
+toDetailsTap: function (e) {
+    var svsType = e.currentTarget.dataset.id;
+    console.log(svsType)
+    switch (svsType) {
+      case "wzcx":
+      case "dxwz":
+        wx.navigateTo({
+          url: "/pages/driverLicense/index?id=" + e.currentTarget.dataset.id
+        })
+        break;
+      case "bsgh":
+      case "clwq":
+      case "clqr":
+        wx.navigateTo({
+          url: "/pages/cheguohu/index?id=" + e.currentTarget.dataset.id
+        })
+        break;
+      case "gcc":
+      case "jkc":
+      case "pxcl":
+        wx.navigateTo({
+          url: "/pages/cheguohu/index?id=" + e.currentTarget.dataset.id
+        })
+        break;
+      case "bscl":
+      case "ydcl":
+        wx.showToast({
+          title: '敬请期待',
+          icon: 'success',
+          duration: 1500
+        })
+        break;
+
+    }
+   
+  },
 })

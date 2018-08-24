@@ -9,7 +9,7 @@ App({
       return
     }
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/user/check-token',
+      url: '',
       data: {
         token: token
       },
@@ -24,7 +24,7 @@ App({
   sendTempleMsg: function (orderId, trigger, template_id, form_id, page, postJsonString){
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/template-msg/put',
+      url: '',
       method:'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -50,7 +50,7 @@ App({
   sendTempleMsgImmediately: function (template_id, form_id, page, postJsonString) {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/template-msg/put',
+      url: '',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -78,7 +78,7 @@ App({
   },
   globalData:{
     userInfo:null,
-    subDomain: "tz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
+    subDomain: "tz", // 如果你的域名是： 
     version: "3.0.1",
     shareProfile: '百款精品服务，总有一款适合您', // 首页转发的时候话术
     index_city: "" // index页面中的switch city

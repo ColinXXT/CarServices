@@ -9,7 +9,9 @@
     "pages/switchcity/switchcity",
     "pages/detail/index",
     "pages/search/index",
-    "pages/driverLicense/index"
+    "pages/driverLicense/index",
+    "pages/cheguohu/index",
+    "pages/wzlist/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

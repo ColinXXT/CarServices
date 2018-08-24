@@ -7,25 +7,26 @@ Page({
    */
   data: {
     detail: [],
+    condition:true,
     areaIndex: 0,
+    areaValue:'小型汽车',
     area: ['小型汽车', '大型客车(A1)', '索引货车(A2)', '中型客车(B1)','大型货车(B2)','两、三轮摩托(B1)'],
-    licenceIndex: 0,
+    licenceIndex: 27,
+    licenceValue:'京',
     licence: ["京", "沪", "浙", "苏", "粤", "鲁", "晋", "冀",
       "豫", "川", "渝", "辽", "吉", "黑", "皖", "鄂",
       "津", "贵", "云", "桂", "琼", "青", "新", "藏",
       "蒙", "宁", "甘", "陕", "闽", "赣", "湘"],
-    serviceList:[
-      { sname: '车务办理', sid: 'handing' },
-      { sname: '所需手续', sid: 'procedures' },
-      { sname: '注意事项', sid: 'notes' }
-    ],
     imageUrl:"",
     curIndex: 0,
     isScroll: false,
     toView: 'renewal',
     modalFlag: true,
     modalFlag1:true,
-    modalFlag2:true
+    modalFlag2:true,
+    chepaiValue:"",
+    fadongjiValue:'',
+    chejiaValue:''
   },
 
   /**
@@ -100,12 +101,14 @@ Page({
 
   bindPickerChange: function (e) {
     this.setData({
-      areaIndex: e.detail.value
+      areaIndex: e.detail.value,
+      areaValue: this.data.area[e.detail.value]
     })
   },
   bindLicenceChange:function(e){
     this.setData({
-      licenceIndex: e.detail.value
+      licenceIndex: e.detail.value,
+      licenceValue: this.data.licence[e.detail.value]
     })
   },
   modalOk: function(){
@@ -129,13 +132,94 @@ Page({
   },
   showCheJiaNumber: function (e) {
     var self = this;
-    self.setData({
-      modalFlag2: false
-    })
+    wx.showLoading();
+    setTimeout(function () {
+      self.setData({
+        modalFlag2: false
+      })
+      wx.hideLoading();
+    }, 3000)
+    
   },
   carInput:function(e){
-   
+    let val = e.target.dataset.id;
+    console.log(e)
+    switch (val) {
+      case 'carNumber':
+        this.setData({
+          chepaiValue: e.detail.value
+        })
+        break;
+      case 'fdjNumber':
+        this.setData({
+          fadongjiValue: e.detail.value
+        })
+        break;
+      case 'zjNumber':
+        this.setData({
+          chejiaValue: e.detail.value
+        })
+        break;
+    }
+  },
 
+  search:function(){
+    if (this.data.chepaiValue=="") {
+      wx.showModal({
+        title: '提示',
+        content: "车牌号不能为空"
+      })
+      return;
+    }
+    if (this.data.chejiaValue == "") {
+      wx.showModal({
+        title: '提示',
+        content: "车架号不能为空"
+      })
+      return;
+    }
+    if (this.data.fadongjiValue == "") {
+      wx.showModal({
+        title: '提示',
+        content: "发动机号不能为空"
+      })
+      return;
+    }
+    wx.showToast({
+      title: '查询中',
+      icon: 'loading',
+      duration: 10000
+    })
+    setTimeout(function () {
+      wx.hideToast();
+      wx.navigateTo({
+        url: "/pages/wzlist/index?detail=" +""
+      })
+
+    }, 2000)
+    wx.request({
+      url: "xxx",
+      data: {},
+      method: "POST",
+      success: function (res) {
+        var res = res;
+        console.log("response", res);
+        if (res.data.code == 0) {
+
+          wx.showToast({
+            title: '查询成功跳转中...',
+            icon: 'success',
+            duration: 2000
+          })
+
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: "未查询到记录"
+          })
+        }
+      }
+    })
   },
   /**
    * 用户点击右上角分享
